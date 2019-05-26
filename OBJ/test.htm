@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\OBJ\test.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\OBJ\test.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060183: Last Updated: Sun May 26 18:51:15 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060183: Last Updated: Sun May 26 21:16:15 2019
 <BR><P>
 <H3>Maximum Stack Usage =        160 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -415,15 +415,15 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart2_init
+<BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart2_init
 </UL>
 
-<P><STRONG><a name="[89]"></a>__aeabi_fmul</STRONG> (Thumb, 100 bytes, Stack size 8 bytes, fmul.o(.text))
+<P><STRONG><a name="[8a]"></a>__aeabi_fmul</STRONG> (Thumb, 100 bytes, Stack size 8 bytes, fmul.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_fmul
 </UL>
-<BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart2_init
+<BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart2_init
 </UL>
 
 <P><STRONG><a name="[61]"></a>__aeabi_fdiv</STRONG> (Thumb, 124 bytes, Stack size 8 bytes, fdiv.o(.text))
@@ -431,8 +431,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_float_round
 </UL>
-<BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart2_init
+<BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart2_init
 </UL>
 
 <P><STRONG><a name="[62]"></a>__aeabi_ui2f</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, ffltui.o(.text))
@@ -440,13 +440,13 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_float_epilogue
 </UL>
-<BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart2_init
+<BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart2_init
 </UL>
 
-<P><STRONG><a name="[88]"></a>__aeabi_f2uiz</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, ffixui.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart2_init
+<P><STRONG><a name="[89]"></a>__aeabi_f2uiz</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, ffixui.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart2_init
 </UL>
 
 <P><STRONG><a name="[96]"></a>__I$use$fp</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, iusefp.o(.text), UNUSED)
@@ -471,7 +471,7 @@ Global Symbols
 
 <P><STRONG><a name="[97]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
 
-<P><STRONG><a name="[83]"></a>LED_Init</STRONG> (Thumb, 100 bytes, Stack size 0 bytes, led.o(i.LED_Init))
+<P><STRONG><a name="[84]"></a>LED_Init</STRONG> (Thumb, 100 bytes, Stack size 0 bytes, led.o(i.LED_Init))
 <BR><BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -489,7 +489,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MY_NVIC_PriorityGroupConfig
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM4_Int_Init
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart2_init
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart2_init
 </UL>
 
 <P><STRONG><a name="[67]"></a>MY_NVIC_PriorityGroupConfig</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, sys.o(i.MY_NVIC_PriorityGroupConfig))
@@ -529,12 +529,12 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[28]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM4_IRQHandler
 </UL>
 
-<P><STRONG><a name="[8a]"></a>Tim4_Clear_Disable</STRONG> (Thumb, 52 bytes, Stack size 0 bytes, porttimer.o(i.Tim4_Clear_Disable))
-<BR><BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMBPortTimersDisable
+<P><STRONG><a name="[8b]"></a>Tim4_Clear_Disable</STRONG> (Thumb, 52 bytes, Stack size 0 bytes, porttimer.o(i.Tim4_Clear_Disable))
+<BR><BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMBPortTimersDisable
 </UL>
 
-<P><STRONG><a name="[8b]"></a>Tim4_Clear_Enable</STRONG> (Thumb, 78 bytes, Stack size 0 bytes, porttimer.o(i.Tim4_Clear_Enable))
-<BR><BR>[Called By]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMBPortTimersEnable
+<P><STRONG><a name="[8c]"></a>Tim4_Clear_Enable</STRONG> (Thumb, 78 bytes, Stack size 0 bytes, porttimer.o(i.Tim4_Clear_Enable))
+<BR><BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMBPortTimersEnable
 </UL>
 
 <P><STRONG><a name="[30]"></a>USART2_IRQHandler</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, portserial.o(i.USART2_IRQHandler))
@@ -551,7 +551,7 @@ Global Symbols
 
 <P><STRONG><a name="[98]"></a>__1printf$bare</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, printfb.o(i.__0printf$bare), UNUSED)
 
-<P><STRONG><a name="[84]"></a>__2printf</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, printfb.o(i.__0printf$bare))
+<P><STRONG><a name="[85]"></a>__2printf</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, printfb.o(i.__0printf$bare))
 <BR><BR>[Called By]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBRTUTimerT35Expired
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -562,15 +562,15 @@ Global Symbols
 
 <P><STRONG><a name="[9b]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 
-<P><STRONG><a name="[81]"></a>delay_init</STRONG> (Thumb, 56 bytes, Stack size 0 bytes, delay.o(i.delay_init))
+<P><STRONG><a name="[82]"></a>delay_init</STRONG> (Thumb, 56 bytes, Stack size 0 bytes, delay.o(i.delay_init))
 <BR><BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[86]"></a>delay_ms</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, delay.o(i.delay_ms))
+<P><STRONG><a name="[87]"></a>delay_ms</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, delay.o(i.delay_ms))
 <BR><BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[85]"></a>eMBEnable</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, mb.o(i.eMBEnable))
+<P><STRONG><a name="[86]"></a>eMBEnable</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, mb.o(i.eMBEnable))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = eMBEnable
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -689,10 +689,11 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> mb.o(i.eMBInit)
 </UL>
-<P><STRONG><a name="[4b]"></a>eMBRTUSend</STRONG> (Thumb, 116 bytes, Stack size 24 bytes, mbrtu.o(i.eMBRTUSend))
+<P><STRONG><a name="[4b]"></a>eMBRTUSend</STRONG> (Thumb, 146 bytes, Stack size 24 bytes, mbrtu.o(i.eMBRTUSend))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = eMBRTUSend &rArr; usMBCRC16
 </UL>
-<BR>[Calls]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMBPortSerialEnable
+<BR>[Calls]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBPortSerialPutByte
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMBPortSerialEnable
 <LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usMBCRC16
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> mb.o(i.eMBInit)
@@ -700,16 +701,16 @@ Global Symbols
 <P><STRONG><a name="[49]"></a>eMBRTUStart</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, mbrtu.o(i.eMBRTUStart))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = eMBRTUStart &rArr; vMBPortTimersEnable
 </UL>
-<BR>[Calls]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMBPortTimersEnable
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMBPortSerialEnable
+<BR>[Calls]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMBPortTimersEnable
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMBPortSerialEnable
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> mb.o(i.eMBInit)
 </UL>
 <P><STRONG><a name="[4a]"></a>eMBRTUStop</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, mbrtu.o(i.eMBRTUStop))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = eMBRTUStop &rArr; vMBPortTimersDisable
 </UL>
-<BR>[Calls]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMBPortTimersDisable
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMBPortSerialEnable
+<BR>[Calls]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMBPortTimersDisable
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMBPortSerialEnable
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> mb.o(i.eMBInit)
 </UL>
@@ -746,15 +747,15 @@ Global Symbols
 <P><STRONG><a name="[46]"></a>main</STRONG> (Thumb, 86 bytes, Stack size 8 bytes, test.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = main &rArr; eMBInit &rArr; eMBRTUInit &rArr; xMBPortSerialInit &rArr; uart2_init &rArr; MY_NVIC_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
+<BR>[Calls]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBPoll
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBInit
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBEnable
-<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
-<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_init
+<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBEnable
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
+<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_init
 <LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Stm32_Clock_Init
-<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Init
-<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Init
+<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
 </UL>
@@ -782,27 +783,27 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[30]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART2_IRQHandler
 </UL>
 
-<P><STRONG><a name="[87]"></a>uart2_init</STRONG> (Thumb, 202 bytes, Stack size 40 bytes, portserial.o(i.uart2_init))
+<P><STRONG><a name="[88]"></a>uart2_init</STRONG> (Thumb, 202 bytes, Stack size 40 bytes, portserial.o(i.uart2_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = uart2_init &rArr; MY_NVIC_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
 <LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_frsub
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 <LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2uiz
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2uiz
 <LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MY_NVIC_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBPortSerialInit
 </UL>
 
-<P><STRONG><a name="[82]"></a>uart_init</STRONG> (Thumb, 180 bytes, Stack size 40 bytes, usart.o(i.uart_init))
+<P><STRONG><a name="[83]"></a>uart_init</STRONG> (Thumb, 180 bytes, Stack size 40 bytes, usart.o(i.uart_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = uart_init &rArr; __aeabi_frsub &rArr; __aeabi_fadd &rArr; _float_epilogue
 </UL>
 <BR>[Calls]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
 <LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_frsub
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 <LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2uiz
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2uiz
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -814,26 +815,26 @@ Global Symbols
 <LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBRTUReceive
 </UL>
 
-<P><STRONG><a name="[7e]"></a>vMBPortSerialEnable</STRONG> (Thumb, 62 bytes, Stack size 0 bytes, portserial.o(i.vMBPortSerialEnable))
+<P><STRONG><a name="[7f]"></a>vMBPortSerialEnable</STRONG> (Thumb, 62 bytes, Stack size 0 bytes, portserial.o(i.vMBPortSerialEnable))
 <BR><BR>[Called By]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBRTUTransmitFSM
 <LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBRTUStop
 <LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBRTUStart
 <LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBRTUSend
 </UL>
 
-<P><STRONG><a name="[80]"></a>vMBPortTimersDisable</STRONG> (Thumb, 8 bytes, Stack size 4 bytes, porttimer.o(i.vMBPortTimersDisable))
+<P><STRONG><a name="[81]"></a>vMBPortTimersDisable</STRONG> (Thumb, 8 bytes, Stack size 4 bytes, porttimer.o(i.vMBPortTimersDisable))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = vMBPortTimersDisable
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Tim4_Clear_Disable
+<BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Tim4_Clear_Disable
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBRTUTimerT35Expired
 <LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBRTUStop
 </UL>
 
-<P><STRONG><a name="[7f]"></a>vMBPortTimersEnable</STRONG> (Thumb, 8 bytes, Stack size 4 bytes, porttimer.o(i.vMBPortTimersEnable))
+<P><STRONG><a name="[80]"></a>vMBPortTimersEnable</STRONG> (Thumb, 8 bytes, Stack size 4 bytes, porttimer.o(i.vMBPortTimersEnable))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = vMBPortTimersEnable
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Tim4_Clear_Enable
+<BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Tim4_Clear_Enable
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBRTUReceiveFSM
 <LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBRTUStart
@@ -853,20 +854,21 @@ Global Symbols
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBPoll
 </UL>
 
-<P><STRONG><a name="[8c]"></a>xMBPortSerialGetByte</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, portserial.o(i.xMBPortSerialGetByte))
+<P><STRONG><a name="[8d]"></a>xMBPortSerialGetByte</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, portserial.o(i.xMBPortSerialGetByte))
 <BR><BR>[Called By]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBRTUReceiveFSM
 </UL>
 
 <P><STRONG><a name="[7b]"></a>xMBPortSerialInit</STRONG> (Thumb, 26 bytes, Stack size 24 bytes, portserial.o(i.xMBPortSerialInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = xMBPortSerialInit &rArr; uart2_init &rArr; MY_NVIC_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart2_init
+<BR>[Calls]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart2_init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBRTUInit
 </UL>
 
-<P><STRONG><a name="[8d]"></a>xMBPortSerialPutByte</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, portserial.o(i.xMBPortSerialPutByte))
+<P><STRONG><a name="[7e]"></a>xMBPortSerialPutByte</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, portserial.o(i.xMBPortSerialPutByte))
 <BR><BR>[Called By]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBRTUTransmitFSM
+<LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBRTUSend
 </UL>
 
 <P><STRONG><a name="[7c]"></a>xMBPortTimersInit</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, porttimer.o(i.xMBPortTimersInit))
@@ -880,25 +882,25 @@ Global Symbols
 <P><STRONG><a name="[4d]"></a>xMBRTUReceiveFSM</STRONG> (Thumb, 122 bytes, Stack size 16 bytes, mbrtu.o(i.xMBRTUReceiveFSM))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = xMBRTUReceiveFSM &rArr; vMBPortTimersEnable
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBPortSerialGetByte
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMBPortTimersEnable
+<BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBPortSerialGetByte
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMBPortTimersEnable
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> mb.o(i.eMBInit)
 </UL>
 <P><STRONG><a name="[4f]"></a>xMBRTUTimerT35Expired</STRONG> (Thumb, 66 bytes, Stack size 8 bytes, mbrtu.o(i.xMBRTUTimerT35Expired))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = xMBRTUTimerT35Expired &rArr; vMBPortTimersDisable
 </UL>
-<BR>[Calls]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMBPortTimersDisable
+<BR>[Calls]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMBPortTimersDisable
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBPortEventPost
-<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> mb.o(i.eMBInit)
 </UL>
 <P><STRONG><a name="[4e]"></a>xMBRTUTransmitFSM</STRONG> (Thumb, 94 bytes, Stack size 8 bytes, mbrtu.o(i.xMBRTUTransmitFSM))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = xMBRTUTransmitFSM
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBPortSerialPutByte
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMBPortSerialEnable
+<BR>[Calls]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBPortSerialPutByte
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMBPortSerialEnable
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBPortEventPost
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> mb.o(i.eMBInit)

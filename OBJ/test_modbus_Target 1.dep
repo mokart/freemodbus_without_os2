@@ -1,6 +1,6 @@
 Dependencies for Project 'test_modbus', Target 'Target 1': (DO NOT MODIFY !)
 F (.\startup_stm32f10x_hd.s)(0x5CE6DFA6)(--cpu Cortex-M3 -g --apcs=interwork --pd "__MICROLIB SETA 1"-I E:\q_learn\modbus_without_os-master\USER\RTE-I d:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I d:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include--pd "__UVISION_VERSION SETA 520" --pd "_RTE_ SETA 1" --pd "STM32F10X_HD SETA 1"--list ..\obj\startup_stm32f10x_hd.lst --xref -o ..\obj\startup_stm32f10x_hd.o --depend ..\obj\startup_stm32f10x_hd.d)
-F (.\test.c)(0x5CEA6E80)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE\LED -I ..\HARDWARE\KEY -I ..\MODBUS -I ..\MODBUS\modbus\ascii -I ..\MODBUS\modbus\functions -I ..\MODBUS\modbus\rtu -I ..\MODBUS\port -I ..\MODBUS\modbus\include -I ..\HARDWARE\USART2-I E:\q_learn\modbus_without_os-master\USER\RTE-I d:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I d:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DNDEBUG-o ..\obj\test.o --omf_browse ..\obj\test.crf --depend ..\obj\test.d)
+F (.\test.c)(0x5CEA73EC)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE\LED -I ..\HARDWARE\KEY -I ..\MODBUS -I ..\MODBUS\modbus\ascii -I ..\MODBUS\modbus\functions -I ..\MODBUS\modbus\rtu -I ..\MODBUS\port -I ..\MODBUS\modbus\include -I ..\HARDWARE\USART2-I E:\q_learn\modbus_without_os-master\USER\RTE-I d:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I d:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DNDEBUG-o ..\obj\test.o --omf_browse ..\obj\test.crf --depend ..\obj\test.d)
 I (..\SYSTEM\sys\sys.h)(0x5CE6DFA6)
 I (..\SYSTEM\sys\stm32f10x.h)(0x5CE6DFA6)
 I (d:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm3.h)(0x5625B70C)
@@ -19,7 +19,7 @@ I (..\MODBUS\port\port.h)(0x5CE6DFA6)
 I (d:\Keil_v5\ARM\ARMCC\include\assert.h)(0x56FE42D6)
 I (d:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x56FE42DE)
 I (..\MODBUS\modbus\include\mbport.h)(0x5CE6DFA6)
-I (..\MODBUS\modbus\include\mbproto.h)(0x5CE6DFA6)
+I (..\MODBUS\modbus\include\mbproto.h)(0x5CEA8A35)
 F (..\SYSTEM\delay\delay.c)(0x5CE6DFA6)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE\LED -I ..\HARDWARE\KEY -I ..\MODBUS -I ..\MODBUS\modbus\ascii -I ..\MODBUS\modbus\functions -I ..\MODBUS\modbus\rtu -I ..\MODBUS\port -I ..\MODBUS\modbus\include -I ..\HARDWARE\USART2-I E:\q_learn\modbus_without_os-master\USER\RTE-I d:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I d:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DNDEBUG-o ..\obj\delay.o --omf_browse ..\obj\delay.crf --depend ..\obj\delay.d)
 I (..\SYSTEM\delay\delay.h)(0x5CE6DFA6)
 I (..\SYSTEM\sys\sys.h)(0x5CE6DFA6)
@@ -74,7 +74,7 @@ I (..\SYSTEM\sys\system_stm32f10x.h)(0x5CE6DFA6)
 I (..\MODBUS\port\port.h)(0x5CE6DFA6)
 I (d:\Keil_v5\ARM\ARMCC\include\assert.h)(0x56FE42D6)
 I (d:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x56FE42DE)
-F (..\MODBUS\modbus\mb.c)(0x5CE6DFA6)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE\LED -I ..\HARDWARE\KEY -I ..\MODBUS -I ..\MODBUS\modbus\ascii -I ..\MODBUS\modbus\functions -I ..\MODBUS\modbus\rtu -I ..\MODBUS\port -I ..\MODBUS\modbus\include -I ..\HARDWARE\USART2-I E:\q_learn\modbus_without_os-master\USER\RTE-I d:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I d:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DNDEBUG-o ..\obj\mb.o --omf_browse ..\obj\mb.crf --depend ..\obj\mb.d)
+F (..\MODBUS\modbus\mb.c)(0x5CEA919C)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE\LED -I ..\HARDWARE\KEY -I ..\MODBUS -I ..\MODBUS\modbus\ascii -I ..\MODBUS\modbus\functions -I ..\MODBUS\modbus\rtu -I ..\MODBUS\port -I ..\MODBUS\modbus\include -I ..\HARDWARE\USART2-I E:\q_learn\modbus_without_os-master\USER\RTE-I d:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I d:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DNDEBUG-o ..\obj\mb.o --omf_browse ..\obj\mb.crf --depend ..\obj\mb.d)
 I (d:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x56FE42DE)
 I (d:\Keil_v5\ARM\ARMCC\include\string.h)(0x56FE42DE)
 I (..\MODBUS\port\port.h)(0x5CE6DFA6)
@@ -90,7 +90,7 @@ I (d:\Keil_v5\ARM\ARMCC\include\assert.h)(0x56FE42D6)
 I (d:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x56FE42DE)
 I (..\MODBUS\modbus\include\mb.h)(0x5CE6DFA6)
 I (..\MODBUS\modbus\include\mbport.h)(0x5CE6DFA6)
-I (..\MODBUS\modbus\include\mbproto.h)(0x5CE6DFA6)
+I (..\MODBUS\modbus\include\mbproto.h)(0x5CEA8A35)
 I (..\MODBUS\modbus\include\mbconfig.h)(0x5CE6DFA6)
 I (..\MODBUS\modbus\include\mbframe.h)(0x5CE6DFA6)
 I (..\MODBUS\modbus\include\mbfunc.h)(0x5CE6DFA6)
@@ -107,7 +107,7 @@ I (d:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h)(0x5625A350)
 I (..\SYSTEM\sys\system_stm32f10x.h)(0x5CE6DFA6)
 I (d:\Keil_v5\ARM\ARMCC\include\assert.h)(0x56FE42D6)
 I (d:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x56FE42DE)
-F (..\MODBUS\modbus\rtu\mbrtu.c)(0x5CE6DFA6)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE\LED -I ..\HARDWARE\KEY -I ..\MODBUS -I ..\MODBUS\modbus\ascii -I ..\MODBUS\modbus\functions -I ..\MODBUS\modbus\rtu -I ..\MODBUS\port -I ..\MODBUS\modbus\include -I ..\HARDWARE\USART2-I E:\q_learn\modbus_without_os-master\USER\RTE-I d:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I d:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DNDEBUG-o ..\obj\mbrtu.o --omf_browse ..\obj\mbrtu.crf --depend ..\obj\mbrtu.d)
+F (..\MODBUS\modbus\rtu\mbrtu.c)(0x5CEA915F)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE\LED -I ..\HARDWARE\KEY -I ..\MODBUS -I ..\MODBUS\modbus\ascii -I ..\MODBUS\modbus\functions -I ..\MODBUS\modbus\rtu -I ..\MODBUS\port -I ..\MODBUS\modbus\include -I ..\HARDWARE\USART2-I E:\q_learn\modbus_without_os-master\USER\RTE-I d:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I d:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DNDEBUG-o ..\obj\mbrtu.o --omf_browse ..\obj\mbrtu.crf --depend ..\obj\mbrtu.d)
 I (d:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x56FE42DE)
 I (d:\Keil_v5\ARM\ARMCC\include\string.h)(0x56FE42DE)
 I (..\SYSTEM\usart\usart.h)(0x5CE6DFA6)
@@ -125,11 +125,11 @@ I (d:\Keil_v5\ARM\ARMCC\include\assert.h)(0x56FE42D6)
 I (d:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x56FE42DE)
 I (..\MODBUS\modbus\include\mb.h)(0x5CE6DFA6)
 I (..\MODBUS\modbus\include\mbport.h)(0x5CE6DFA6)
-I (..\MODBUS\modbus\include\mbproto.h)(0x5CE6DFA6)
+I (..\MODBUS\modbus\include\mbproto.h)(0x5CEA8A35)
 I (..\MODBUS\modbus\rtu\mbrtu.h)(0x5CE6DFA6)
 I (..\MODBUS\modbus\include\mbframe.h)(0x5CE6DFA6)
 I (..\MODBUS\modbus\rtu\mbcrc.h)(0x5CE6DFA6)
-F (..\MODBUS\modbus\functions\mbfunccoils.c)(0x5CE6DFA6)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE\LED -I ..\HARDWARE\KEY -I ..\MODBUS -I ..\MODBUS\modbus\ascii -I ..\MODBUS\modbus\functions -I ..\MODBUS\modbus\rtu -I ..\MODBUS\port -I ..\MODBUS\modbus\include -I ..\HARDWARE\USART2-I E:\q_learn\modbus_without_os-master\USER\RTE-I d:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I d:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DNDEBUG-o ..\obj\mbfunccoils.o --omf_browse ..\obj\mbfunccoils.crf --depend ..\obj\mbfunccoils.d)
+F (..\MODBUS\modbus\functions\mbfunccoils.c)(0x5CEA8BA5)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE\LED -I ..\HARDWARE\KEY -I ..\MODBUS -I ..\MODBUS\modbus\ascii -I ..\MODBUS\modbus\functions -I ..\MODBUS\modbus\rtu -I ..\MODBUS\port -I ..\MODBUS\modbus\include -I ..\HARDWARE\USART2-I E:\q_learn\modbus_without_os-master\USER\RTE-I d:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I d:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DNDEBUG-o ..\obj\mbfunccoils.o --omf_browse ..\obj\mbfunccoils.crf --depend ..\obj\mbfunccoils.d)
 I (d:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x56FE42DE)
 I (d:\Keil_v5\ARM\ARMCC\include\string.h)(0x56FE42DE)
 I (..\MODBUS\port\port.h)(0x5CE6DFA6)
@@ -145,7 +145,7 @@ I (d:\Keil_v5\ARM\ARMCC\include\assert.h)(0x56FE42D6)
 I (d:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x56FE42DE)
 I (..\MODBUS\modbus\include\mb.h)(0x5CE6DFA6)
 I (..\MODBUS\modbus\include\mbport.h)(0x5CE6DFA6)
-I (..\MODBUS\modbus\include\mbproto.h)(0x5CE6DFA6)
+I (..\MODBUS\modbus\include\mbproto.h)(0x5CEA8A35)
 I (..\MODBUS\modbus\include\mbframe.h)(0x5CE6DFA6)
 I (..\MODBUS\modbus\include\mbconfig.h)(0x5CE6DFA6)
 F (..\MODBUS\modbus\functions\mbfuncdiag.c)(0x5CE6DFA6)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE\LED -I ..\HARDWARE\KEY -I ..\MODBUS -I ..\MODBUS\modbus\ascii -I ..\MODBUS\modbus\functions -I ..\MODBUS\modbus\rtu -I ..\MODBUS\port -I ..\MODBUS\modbus\include -I ..\HARDWARE\USART2-I E:\q_learn\modbus_without_os-master\USER\RTE-I d:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I d:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DNDEBUG-o ..\obj\mbfuncdiag.o --omf_browse ..\obj\mbfuncdiag.crf --depend ..\obj\mbfuncdiag.d)
@@ -165,7 +165,7 @@ I (d:\Keil_v5\ARM\ARMCC\include\assert.h)(0x56FE42D6)
 I (d:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x56FE42DE)
 I (..\MODBUS\modbus\include\mb.h)(0x5CE6DFA6)
 I (..\MODBUS\modbus\include\mbport.h)(0x5CE6DFA6)
-I (..\MODBUS\modbus\include\mbproto.h)(0x5CE6DFA6)
+I (..\MODBUS\modbus\include\mbproto.h)(0x5CEA8A35)
 I (..\MODBUS\modbus\include\mbframe.h)(0x5CE6DFA6)
 I (..\MODBUS\modbus\include\mbconfig.h)(0x5CE6DFA6)
 F (..\MODBUS\modbus\functions\mbfuncholding.c)(0x5CE6DFA6)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE\LED -I ..\HARDWARE\KEY -I ..\MODBUS -I ..\MODBUS\modbus\ascii -I ..\MODBUS\modbus\functions -I ..\MODBUS\modbus\rtu -I ..\MODBUS\port -I ..\MODBUS\modbus\include -I ..\HARDWARE\USART2-I E:\q_learn\modbus_without_os-master\USER\RTE-I d:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I d:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DNDEBUG-o ..\obj\mbfuncholding.o --omf_browse ..\obj\mbfuncholding.crf --depend ..\obj\mbfuncholding.d)
@@ -184,10 +184,10 @@ I (d:\Keil_v5\ARM\ARMCC\include\assert.h)(0x56FE42D6)
 I (d:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x56FE42DE)
 I (..\MODBUS\modbus\include\mb.h)(0x5CE6DFA6)
 I (..\MODBUS\modbus\include\mbport.h)(0x5CE6DFA6)
-I (..\MODBUS\modbus\include\mbproto.h)(0x5CE6DFA6)
+I (..\MODBUS\modbus\include\mbproto.h)(0x5CEA8A35)
 I (..\MODBUS\modbus\include\mbframe.h)(0x5CE6DFA6)
 I (..\MODBUS\modbus\include\mbconfig.h)(0x5CE6DFA6)
-F (..\MODBUS\modbus\functions\mbfuncinput.c)(0x5CE6DFA6)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE\LED -I ..\HARDWARE\KEY -I ..\MODBUS -I ..\MODBUS\modbus\ascii -I ..\MODBUS\modbus\functions -I ..\MODBUS\modbus\rtu -I ..\MODBUS\port -I ..\MODBUS\modbus\include -I ..\HARDWARE\USART2-I E:\q_learn\modbus_without_os-master\USER\RTE-I d:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I d:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DNDEBUG-o ..\obj\mbfuncinput.o --omf_browse ..\obj\mbfuncinput.crf --depend ..\obj\mbfuncinput.d)
+F (..\MODBUS\modbus\functions\mbfuncinput.c)(0x5CEA70DC)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE\LED -I ..\HARDWARE\KEY -I ..\MODBUS -I ..\MODBUS\modbus\ascii -I ..\MODBUS\modbus\functions -I ..\MODBUS\modbus\rtu -I ..\MODBUS\port -I ..\MODBUS\modbus\include -I ..\HARDWARE\USART2-I E:\q_learn\modbus_without_os-master\USER\RTE-I d:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I d:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DNDEBUG-o ..\obj\mbfuncinput.o --omf_browse ..\obj\mbfuncinput.crf --depend ..\obj\mbfuncinput.d)
 I (d:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x56FE42DE)
 I (d:\Keil_v5\ARM\ARMCC\include\string.h)(0x56FE42DE)
 I (..\MODBUS\port\port.h)(0x5CE6DFA6)
@@ -203,7 +203,7 @@ I (d:\Keil_v5\ARM\ARMCC\include\assert.h)(0x56FE42D6)
 I (d:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x56FE42DE)
 I (..\MODBUS\modbus\include\mb.h)(0x5CE6DFA6)
 I (..\MODBUS\modbus\include\mbport.h)(0x5CE6DFA6)
-I (..\MODBUS\modbus\include\mbproto.h)(0x5CE6DFA6)
+I (..\MODBUS\modbus\include\mbproto.h)(0x5CEA8A35)
 I (..\MODBUS\modbus\include\mbframe.h)(0x5CE6DFA6)
 I (..\MODBUS\modbus\include\mbconfig.h)(0x5CE6DFA6)
 F (..\MODBUS\modbus\functions\mbfuncother.c)(0x5CE6DFA6)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE\LED -I ..\HARDWARE\KEY -I ..\MODBUS -I ..\MODBUS\modbus\ascii -I ..\MODBUS\modbus\functions -I ..\MODBUS\modbus\rtu -I ..\MODBUS\port -I ..\MODBUS\modbus\include -I ..\HARDWARE\USART2-I E:\q_learn\modbus_without_os-master\USER\RTE-I d:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I d:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DNDEBUG-o ..\obj\mbfuncother.o --omf_browse ..\obj\mbfuncother.crf --depend ..\obj\mbfuncother.d)
@@ -222,7 +222,7 @@ I (d:\Keil_v5\ARM\ARMCC\include\assert.h)(0x56FE42D6)
 I (d:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x56FE42DE)
 I (..\MODBUS\modbus\include\mb.h)(0x5CE6DFA6)
 I (..\MODBUS\modbus\include\mbport.h)(0x5CE6DFA6)
-I (..\MODBUS\modbus\include\mbproto.h)(0x5CE6DFA6)
+I (..\MODBUS\modbus\include\mbproto.h)(0x5CEA8A35)
 I (..\MODBUS\modbus\include\mbframe.h)(0x5CE6DFA6)
 I (..\MODBUS\modbus\include\mbconfig.h)(0x5CE6DFA6)
 F (..\MODBUS\modbus\functions\mbutils.c)(0x5CE6DFA6)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE\LED -I ..\HARDWARE\KEY -I ..\MODBUS -I ..\MODBUS\modbus\ascii -I ..\MODBUS\modbus\functions -I ..\MODBUS\modbus\rtu -I ..\MODBUS\port -I ..\MODBUS\modbus\include -I ..\HARDWARE\USART2-I E:\q_learn\modbus_without_os-master\USER\RTE-I d:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I d:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DNDEBUG-o ..\obj\mbutils.o --omf_browse ..\obj\mbutils.crf --depend ..\obj\mbutils.d)
@@ -241,7 +241,7 @@ I (d:\Keil_v5\ARM\ARMCC\include\assert.h)(0x56FE42D6)
 I (d:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x56FE42DE)
 I (..\MODBUS\modbus\include\mb.h)(0x5CE6DFA6)
 I (..\MODBUS\modbus\include\mbport.h)(0x5CE6DFA6)
-I (..\MODBUS\modbus\include\mbproto.h)(0x5CE6DFA6)
+I (..\MODBUS\modbus\include\mbproto.h)(0x5CEA8A35)
 F (..\MODBUS\modbus\ascii\mbascii.c)(0x5CE6DFA6)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE\LED -I ..\HARDWARE\KEY -I ..\MODBUS -I ..\MODBUS\modbus\ascii -I ..\MODBUS\modbus\functions -I ..\MODBUS\modbus\rtu -I ..\MODBUS\port -I ..\MODBUS\modbus\include -I ..\HARDWARE\USART2-I E:\q_learn\modbus_without_os-master\USER\RTE-I d:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I d:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DNDEBUG-o ..\obj\mbascii.o --omf_browse ..\obj\mbascii.crf --depend ..\obj\mbascii.d)
 I (d:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x56FE42DE)
 I (d:\Keil_v5\ARM\ARMCC\include\string.h)(0x56FE42DE)
@@ -258,7 +258,7 @@ I (d:\Keil_v5\ARM\ARMCC\include\assert.h)(0x56FE42D6)
 I (d:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x56FE42DE)
 I (..\MODBUS\modbus\include\mb.h)(0x5CE6DFA6)
 I (..\MODBUS\modbus\include\mbport.h)(0x5CE6DFA6)
-I (..\MODBUS\modbus\include\mbproto.h)(0x5CE6DFA6)
+I (..\MODBUS\modbus\include\mbproto.h)(0x5CEA8A35)
 I (..\MODBUS\modbus\include\mbconfig.h)(0x5CE6DFA6)
 I (..\MODBUS\modbus\ascii\mbascii.h)(0x5CE6DFA6)
 I (..\MODBUS\modbus\include\mbframe.h)(0x5CE6DFA6)
@@ -289,8 +289,8 @@ I (..\SYSTEM\sys\system_stm32f10x.h)(0x5CE6DFA6)
 I (d:\Keil_v5\ARM\ARMCC\include\assert.h)(0x56FE42D6)
 I (d:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x56FE42DE)
 I (..\MODBUS\modbus\include\mbport.h)(0x5CE6DFA6)
-I (..\MODBUS\modbus\include\mbproto.h)(0x5CE6DFA6)
-F (..\MODBUS\port\portserial.c)(0x5CE6DFA6)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE\LED -I ..\HARDWARE\KEY -I ..\MODBUS -I ..\MODBUS\modbus\ascii -I ..\MODBUS\modbus\functions -I ..\MODBUS\modbus\rtu -I ..\MODBUS\port -I ..\MODBUS\modbus\include -I ..\HARDWARE\USART2-I E:\q_learn\modbus_without_os-master\USER\RTE-I d:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I d:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DNDEBUG-o ..\obj\portserial.o --omf_browse ..\obj\portserial.crf --depend ..\obj\portserial.d)
+I (..\MODBUS\modbus\include\mbproto.h)(0x5CEA8A35)
+F (..\MODBUS\port\portserial.c)(0x5CEA8E8F)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE\LED -I ..\HARDWARE\KEY -I ..\MODBUS -I ..\MODBUS\modbus\ascii -I ..\MODBUS\modbus\functions -I ..\MODBUS\modbus\rtu -I ..\MODBUS\port -I ..\MODBUS\modbus\include -I ..\HARDWARE\USART2-I E:\q_learn\modbus_without_os-master\USER\RTE-I d:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I d:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DNDEBUG-o ..\obj\portserial.o --omf_browse ..\obj\portserial.crf --depend ..\obj\portserial.d)
 I (..\MODBUS\port\port.h)(0x5CE6DFA6)
 I (..\SYSTEM\sys\sys.h)(0x5CE6DFA6)
 I (..\SYSTEM\sys\stm32f10x.h)(0x5CE6DFA6)
@@ -306,8 +306,8 @@ I (..\HARDWARE\USART2\usart2.h)(0x5CE6DFA6)
 I (d:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x56FE42DE)
 I (..\MODBUS\modbus\include\mb.h)(0x5CE6DFA6)
 I (..\MODBUS\modbus\include\mbport.h)(0x5CE6DFA6)
-I (..\MODBUS\modbus\include\mbproto.h)(0x5CE6DFA6)
-F (..\MODBUS\port\porttimer.c)(0x5CE6DFA6)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE\LED -I ..\HARDWARE\KEY -I ..\MODBUS -I ..\MODBUS\modbus\ascii -I ..\MODBUS\modbus\functions -I ..\MODBUS\modbus\rtu -I ..\MODBUS\port -I ..\MODBUS\modbus\include -I ..\HARDWARE\USART2-I E:\q_learn\modbus_without_os-master\USER\RTE-I d:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I d:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DNDEBUG-o ..\obj\porttimer.o --omf_browse ..\obj\porttimer.crf --depend ..\obj\porttimer.d)
+I (..\MODBUS\modbus\include\mbproto.h)(0x5CEA8A35)
+F (..\MODBUS\port\porttimer.c)(0x5CEA81CB)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\HARDWARE\LED -I ..\HARDWARE\KEY -I ..\MODBUS -I ..\MODBUS\modbus\ascii -I ..\MODBUS\modbus\functions -I ..\MODBUS\modbus\rtu -I ..\MODBUS\port -I ..\MODBUS\modbus\include -I ..\HARDWARE\USART2-I E:\q_learn\modbus_without_os-master\USER\RTE-I d:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I d:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DSTM32F10X_HD -DNDEBUG-o ..\obj\porttimer.o --omf_browse ..\obj\porttimer.crf --depend ..\obj\porttimer.d)
 I (..\MODBUS\port\port.h)(0x5CE6DFA6)
 I (..\SYSTEM\sys\sys.h)(0x5CE6DFA6)
 I (..\SYSTEM\sys\stm32f10x.h)(0x5CE6DFA6)
@@ -321,4 +321,4 @@ I (d:\Keil_v5\ARM\ARMCC\include\assert.h)(0x56FE42D6)
 I (d:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x56FE42DE)
 I (..\MODBUS\modbus\include\mb.h)(0x5CE6DFA6)
 I (..\MODBUS\modbus\include\mbport.h)(0x5CE6DFA6)
-I (..\MODBUS\modbus\include\mbproto.h)(0x5CE6DFA6)
+I (..\MODBUS\modbus\include\mbproto.h)(0x5CEA8A35)

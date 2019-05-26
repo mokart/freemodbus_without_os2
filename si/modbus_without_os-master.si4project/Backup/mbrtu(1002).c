@@ -271,12 +271,7 @@ eMBRTUSend( UCHAR ucSlaveAddress, const UCHAR * pucFrame, USHORT usLength )
 
         /* Activate the transmitter. */
 		//发送状态
-		//bug 以前没有先发送一个字节
-        eSndState = STATE_TX_XMIT;                         //发送状态
-        xMBPortSerialPutByte( ( CHAR )*pucSndBufferCur );  /*发送一个字节的数据，进入发送中断函数，启动传输*/
-        pucSndBufferCur++;                                 /* next byte in sendbuffer. */
-        usSndBufferCount--;
-
+        eSndState = STATE_TX_XMIT;
         vMBPortSerialEnable( FALSE, TRUE );
     }
     else

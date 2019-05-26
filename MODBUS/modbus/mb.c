@@ -195,7 +195,7 @@ eMBInit( eMBMode eMode, UCHAR ucSlaveAddress, UCHAR ucPort, ULONG ulBaudRate, eM
             }
             else
             {
-                eMBCurrentMode = eMode;   //当前模式设置为RTU模式
+                //eMBCurrentMode = eMode;   //当前模式设置为RTU模式
                 eMBState = STATE_DISABLED;  //MODBUS协议状态初始化，此处初始化为禁止
             }
         }
