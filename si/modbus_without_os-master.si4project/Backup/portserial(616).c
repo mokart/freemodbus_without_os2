@@ -41,7 +41,7 @@ void vMBPortSerialEnable( BOOL xRxEnable, BOOL xTxEnable )
 	if(TRUE==xTxEnable)
 	{
 		//USART_ITConfig(USART2, USART_IT_TXE, ENABLE);
-		USART2->CR1|=(1<<7);    //发送空	使能    		
+		USART2->CR1|=(1<<7);    //发送空	    		
 	}
 	else
 	{

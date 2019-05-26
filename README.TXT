@@ -15,7 +15,7 @@ example git commit -m "understand how stage works"
 关联后，使用命令git push -u origin master第一次推送master分支的所有内容；
 此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改；
 
-  git remote add origin git@github.com:mokart/modbus_without_os.git
+git remote add origin git@github.com:mokart/freemodbus_without_os2.git
 
 第一次 git push -u origin master
 以后   git push origin master

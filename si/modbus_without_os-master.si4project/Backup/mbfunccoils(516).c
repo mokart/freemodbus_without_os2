@@ -78,16 +78,13 @@ eMBFuncReadCoils( UCHAR * pucFrame, USHORT * usLen )
 
     if( *usLen == ( MB_PDU_FUNC_READ_SIZE + MB_PDU_SIZE_MIN ) )
     {
-        //线圈寄存器的起始地址
         usRegAddress = ( USHORT )( pucFrame[MB_PDU_FUNC_READ_ADDR_OFF] << 8 );
         usRegAddress |= ( USHORT )( pucFrame[MB_PDU_FUNC_READ_ADDR_OFF + 1] );
         usRegAddress++;
 
-        //线圈寄存器个数
         usCoilCount = ( USHORT )( pucFrame[MB_PDU_FUNC_READ_COILCNT_OFF] << 8 );
         usCoilCount |= ( USHORT )( pucFrame[MB_PDU_FUNC_READ_COILCNT_OFF + 1] );
 
-       //判断线圈寄存器个数是否合理
         /* Check if the number of registers to read is valid. If not
          * return Modbus illegal data value exception. 
          */
@@ -95,18 +92,15 @@ eMBFuncReadCoils( UCHAR * pucFrame, USHORT * usLen )
             ( usCoilCount < MB_PDU_FUNC_READ_COILCNT_MAX ) )
         {
             /* Set the current PDU data pointer to the beginning. */
-		    //为发送缓冲pucFrameCur赋值
             pucFrameCur = &pucFrame[MB_PDU_FUNC_OFF];
             *usLen = MB_PDU_FUNC_OFF;
 
             /* First byte contains the function code. */
-			//响应报文第一字节赋值为功能码0x01
             *pucFrameCur++ = MB_FUNC_READ_COILS;
             *usLen += 1;
 
             /* Test if the quantity of coils is a multiple of 8. If not last
              * byte is only partially field with unused coils set to zero. */
-             //usCoilCount%8有余数，ucNBytes加1，不够的位填充0
             if( ( usCoilCount & 0x0007 ) != 0 )
             {
                 ucNBytes = ( UCHAR )( usCoilCount / 8 + 1 );

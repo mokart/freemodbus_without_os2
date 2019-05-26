@@ -106,7 +106,6 @@ void TIM4_IRQHandler(void)
 	
 	if(TIM4->SR&0X0001)//溢出中断
 	{
-	    //当主机发送一帧完整的报文后，3.5T定时器中断发生，定时器中断最终回调xMBRTUTimerT35Expired函数
 	    TIMERExpiredISR();
 			TIM4->SR&=~(1<<0);   //清除中断标志位
 	}

@@ -137,12 +137,9 @@ static xMBFunctionHandler xFuncHandlers[MB_FUNC_HANDLERS_MAX] = {
 eMBErrorCode
 eMBInit( eMBMode eMode, UCHAR ucSlaveAddress, UCHAR ucPort, ULONG ulBaudRate, eMBParity eParity )
 {
-    //错误状态初始值
     eMBErrorCode    eStatus = MB_ENOERR;
 
-    /* check preconditions 检查先决条件*/
-	//验证从机地址
-	//
+    /* check preconditions */
     if( ( ucSlaveAddress == MB_ADDRESS_BROADCAST ) ||
         ( ucSlaveAddress < MB_ADDRESS_MIN ) || ( ucSlaveAddress > MB_ADDRESS_MAX ) )
     {
@@ -156,16 +153,16 @@ eMBInit( eMBMode eMode, UCHAR ucSlaveAddress, UCHAR ucPort, ULONG ulBaudRate, eM
         {
 #if MB_RTU_ENABLED > 0
         case MB_RTU:
-            pvMBFrameStartCur = eMBRTUStart;   //RTU模式开始函数
-            pvMBFrameStopCur = eMBRTUStop;     //RTU模式终止函数
-            peMBFrameSendCur = eMBRTUSend;     //RTU回复帧信息组织函数
-            peMBFrameReceiveCur = eMBRTUReceive;  //RTU接收数据帧信息提取函数
-            pvMBFrameCloseCur = MB_PORT_HAS_CLOSE ? vMBPortClose : NULL;  //关闭串口的发送使能和接收使能
-            pxMBFrameCBByteReceived = xMBRTUReceiveFSM;//接收状态机函数，接收中断调用
-            pxMBFrameCBTransmitterEmpty = xMBRTUTransmitFSM;//发送状态机函数，供发送中断调用
-            pxMBPortCBTimerExpired = xMBRTUTimerT35Expired; //超时中断发生时候处理的事务，供中断超时调用
+            pvMBFrameStartCur = eMBRTUStart;
+            pvMBFrameStopCur = eMBRTUStop;
+            peMBFrameSendCur = eMBRTUSend;
+            peMBFrameReceiveCur = eMBRTUReceive;
+            pvMBFrameCloseCur = MB_PORT_HAS_CLOSE ? vMBPortClose : NULL;
+            pxMBFrameCBByteReceived = xMBRTUReceiveFSM;
+            pxMBFrameCBTransmitterEmpty = xMBRTUTransmitFSM;
+            pxMBPortCBTimerExpired = xMBRTUTimerT35Expired;
 
-            eStatus = eMBRTUInit( ucMBAddress, ucPort, ulBaudRate, eParity );  //RTU串口初始化，和3.5T定时器初始化
+            eStatus = eMBRTUInit( ucMBAddress, ucPort, ulBaudRate, eParity );  //RTU串口初始化
             break;
 #endif
 #if MB_ASCII_ENABLED > 0
@@ -188,15 +185,15 @@ eMBInit( eMBMode eMode, UCHAR ucSlaveAddress, UCHAR ucPort, ULONG ulBaudRate, eM
 
         if( eStatus == MB_ENOERR )
         {
-            if( 0==xMBPortEventInit(  ) )
+            if( !xMBPortEventInit(  ) )
             {
                 /* port dependent event module initalization failed. */
                 eStatus = MB_EPORTERR;
             }
             else
             {
-                eMBCurrentMode = eMode;   //当前模式设置为RTU模式
-                eMBState = STATE_DISABLED;  //MODBUS协议状态初始化，此处初始化为禁止
+//                eMBCurrentMode = eMode;
+                eMBState = STATE_DISABLED;
             }
         }
     }
@@ -300,10 +297,6 @@ eMBClose( void )
     return eStatus;
 }
 
-/*函数功能
-*1：设置Modbus协议栈工作状态eMBState为STATE_ENABLED;
-*2: 调用pvMBFrameStartCur()函数激活协议栈
-*/
 eMBErrorCode
 eMBEnable( void )
 {
@@ -312,7 +305,7 @@ eMBEnable( void )
     if( eMBState == STATE_DISABLED )
     {
         /* Activate the protocol stack. */
-		//pvMBFrameStartCur = eMBRTUStart;
+				//pvMBFrameStartCur = eMBRTUStart;
         pvMBFrameStartCur(  );
         eMBState = STATE_ENABLED;
     }
@@ -347,67 +340,52 @@ eMBDisable( void )
 
 //功能 : 轮询事件查询处理函数
 //描述 : 用户需在主循环中调用此函数。对于使用操作系统的程序，应单独创建一个任务，使操作系统能周期调用此函数。
-//功能 : 1.检查协议栈是否使能，eMBState初始值为STATE_NOT_INITIALIZED,在eMBInit()函数中被赋值为STATE_DISABLE,
-//       在 eMBEnable 函数中被赋值为STATE_ENABLE;
-//       2.轮询EV_FRAME_RECEIVED事件发生，若EV_FRAM_RECEIVED事件发生，接收一帧报文数据，上报EV_EXECUTE事件，
-//       解析一帧报文，相应（发送）一帧数据给主机。
-
-//     在第二阶段，从机接收到一帧完整的报文后，上报“接收到报文”事件，eMBPoll函数轮询，发现“接收到报文”事件
-//     发生，调用peMBFrameReceiveCur函数，该函数指针在eMBInit被赋值eMBRTUReceive函数，最终调用eMBRTUReceive
-//     函数，从ucRTUBuf中取得从机地址、PDU单元和PDU单元的长度，然后判断从机地址是否一致，若一致，上报
-//     "报文解析事件"EV_EXECUTE,xMBPortEventPost( EV_EXECUTE );"报文解析事件"发生后，根据功能码，调用 
-//      xFuncHandlers[i].pxHandler( ucMBFrame, &usLength ) 对报文进行解析，此过程全部在eMBPoll函数中执行；
-
 eMBErrorCode eMBPoll( void )
 {
-    static UCHAR   *ucMBFrame;       //接收和发送报文数据缓存区
-    static UCHAR    ucRcvAddress;    //modbus从机地址
-    static UCHAR    ucFunctionCode;  //功能码
-    static USHORT   usLength;        //报文长度
-    static eMBException eException;  //错误码响应枚举
+    static UCHAR   *ucMBFrame;
+    static UCHAR    ucRcvAddress;
+    static UCHAR    ucFunctionCode;
+    static USHORT   usLength;
+    static eMBException eException;
 
     int             i;
-    eMBErrorCode    eStatus = MB_ENOERR;  //modbus协议栈错误码
-    eMBEventType    eEvent;               //事件标志枚举
+    eMBErrorCode    eStatus = MB_ENOERR;
+    eMBEventType    eEvent;
 
-    /* Check if the protocol stack is ready. *///检查协议栈是否使能
+    /* Check if the protocol stack is ready. */
     if( eMBState != STATE_ENABLED )
     {
-        return MB_EILLSTATE;          //协议栈未使能，返回协议栈无效错误码
+        return MB_EILLSTATE;
     }
 
     /* Check if there is a event available. If not return control to caller.
      * Otherwise we will handle the event. */
-
-	//查询事件
-    if( xMBPortEventGet( &eEvent ) == TRUE )   //查询哪个事件发生
+    if( xMBPortEventGet( &eEvent ) == TRUE )
     {
         switch ( eEvent )
         {
         case EV_READY:
             break;
 
-        case EV_FRAME_RECEIVED:              //接收到一帧数据，此事件发生
+        case EV_FRAME_RECEIVED:
 					  //            peMBFrameReceiveCur = eMBRTUReceive;
             eStatus = peMBFrameReceiveCur( &ucRcvAddress, &ucMBFrame, &usLength );//查询接收结果，并将结果保存到ucMBFrame
-            if( eStatus == MB_ENOERR )           //报文长度和CRC校验正确
+            if( eStatus == MB_ENOERR )
             {
                 /* Check if the frame is for us. If not ignore the frame. */
-			    //判断接收到的报文数据是否可接受，如果是，处理报文数据
                 if( ( ucRcvAddress == ucMBAddress ) || ( ucRcvAddress == MB_ADDRESS_BROADCAST ) )
                 {
-                    ( void )xMBPortEventPost( EV_EXECUTE );  //修改事件标志为EV_EXECUTE执行事件
+                    ( void )xMBPortEventPost( EV_EXECUTE );
                 }
             }
             break;
 
-        case EV_EXECUTE:                                //对接收到的报文进行处理数据
-            ucFunctionCode = ucMBFrame[MB_PDU_FUNC_OFF];//获取PDU中的第一个字节为功能码
-            eException = MB_EX_ILLEGAL_FUNCTION;        //赋值错误初始值为无效的功能码
+        case EV_EXECUTE:
+            ucFunctionCode = ucMBFrame[MB_PDU_FUNC_OFF];//从接收缓冲取出功能码，
+            eException = MB_EX_ILLEGAL_FUNCTION;
             for( i = 0; i < MB_FUNC_HANDLERS_MAX; i++ )//依次查询各个功能码
             {
                 /* No more function handlers registered. Abort. */
-			    //没有更多的功能处理寄存器
                 if( xFuncHandlers[i].ucFunctionCode == 0 )
                 {
                     break;
@@ -423,16 +401,14 @@ eMBErrorCode eMBPoll( void )
              * return a reply. */
             if( ucRcvAddress != MB_ADDRESS_BROADCAST )
             {
-                if( eException != MB_EX_NONE )     //接收到的报文有错误
+                if( eException != MB_EX_NONE )
                 {
                     /* An exception occured. Build an error frame. */
-                    usLength = 0;                                     //响应发送数据的首字节为从机地址
-                    ucMBFrame[usLength++] = ( UCHAR )( ucFunctionCode | MB_FUNC_ERROR );//响应发送数据帧的第二个字节，功能码最高位置1
-                    ucMBFrame[usLength++] = eException;               //响应发送数据帧的第三个字节为错误码标识
+                    usLength = 0;
+                    ucMBFrame[usLength++] = ( UCHAR )( ucFunctionCode | MB_FUNC_ERROR );
+                    ucMBFrame[usLength++] = eException;
                 }
-				//解析完一帧完整的报文后，eMBPoll()函数中调用peMBFrameSendCur()函数进行响应，peMBFrameSendCur是
-				//函数指针，最终会调用 eMBRTUSend() 函数发送响应；
-                eStatus = peMBFrameSendCur( ucMBAddress, ucMBFrame, usLength );//modbus从机响应函数，发送响应给主机
+                eStatus = peMBFrameSendCur( ucMBAddress, ucMBFrame, usLength );
             }
             break;
 

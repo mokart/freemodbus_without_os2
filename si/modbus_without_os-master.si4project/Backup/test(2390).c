@@ -31,7 +31,7 @@ int main(void)
 	delay_init(72);	     //延时初始化 
 	uart_init(72,9600);	 //串口初始化为9600
 	LED_Init();		  	 //初始化与LED连接的硬件接口    
-    printf("uart test:\r\n");
+  printf("uart test:\r\n");
 	eMBInit(MB_RTU, 0x02, 0, 9600, MB_PAR_NONE);
 	eMBEnable();
 	

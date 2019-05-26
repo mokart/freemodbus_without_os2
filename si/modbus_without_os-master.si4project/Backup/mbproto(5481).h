@@ -70,7 +70,7 @@ PR_BEGIN_EXTERN_C
 } eMBException;
 
 typedef         eMBException( *pxMBFunctionHandler ) ( UCHAR * pucFrame, USHORT * pusLength );
-//xMBFunctionHandler[i] 是结构体数组，存放的是功能码 以及对应的 报文解析函数 ，原形如下
+
 typedef struct
 {
     UCHAR           ucFunctionCode;

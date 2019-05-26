@@ -80,7 +80,7 @@ static volatile USHORT usSndBufferCount;
 static volatile USHORT usRcvBufferPos;
 
 /* ----------------------- Start implementation -----------------------------*/
-//RTU模式的串口初始化函数和3.5T定时器初始化
+//RTU模式的初始化函数
 //此函数中判断串行口初始化是否成功（通过判断串行口初始化函数的返回值实现。
 //当然，查看返回值必然先调用该函数，从而完成端口初始化），如果成功，则根据波特率计算T35，初始化超时定时器。
 eMBErrorCode
@@ -176,11 +176,6 @@ eMBRTUStop( void )
 //功能 : RTU接收数据帧信息提取函数
 //描述 : 将接收帧（存放于缓存）的地址指针赋给指针变量pucRcvAddress，将PDU编码首地址赋给指针* pucFrame，
 //       将PDU长度地址赋给指针变量pusLength。使用指针访问缓存数组，而不是额外开辟缓存存放帧信息，大大减少了内存的开支。
-
-//功能 : eMBPoll函数轮询到EV_FRAME_RECEIVED事件时，调用peMBFrameReceiveCur(),此函数是用户为函数指针peMBFrameReceiveCur()
-//       的赋值。
-//       此函数完成的功能：从一帧数据报文中，取得modbus从机地址给pucRcvAddress,PDU报文的长度给pusLength,PDU报文的首地址给
-//       pucFrame,函数形参全部为地址传递
 eMBErrorCode
 eMBRTUReceive( UCHAR * pucRcvAddress, UCHAR ** pucFrame, USHORT * pusLength )
 {
@@ -193,7 +188,7 @@ eMBRTUReceive( UCHAR * pucRcvAddress, UCHAR ** pucFrame, USHORT * pusLength )
     #endif	
 	
     ENTER_CRITICAL_SECTION(  );
-    assert( usRcvBufferPos < MB_SER_PDU_SIZE_MAX );  //断言宏，判断接收到的字节数<256，如果>256，终止程序
+    assert( usRcvBufferPos < MB_SER_PDU_SIZE_MAX );
 
     /* Length and CRC check */
     if( ( usRcvBufferPos >= MB_SER_PDU_SIZE_MIN )
@@ -202,12 +197,12 @@ eMBRTUReceive( UCHAR * pucRcvAddress, UCHAR ** pucFrame, USHORT * pusLength )
         /* Save the address field. All frames are passed to the upper layed
          * and the decision if a frame is used is done there.
          */
-        *pucRcvAddress = ucRTUBuf[MB_SER_PDU_ADDR_OFF];//取接收到的第一个字节，modbus从机地址
+        *pucRcvAddress = ucRTUBuf[MB_SER_PDU_ADDR_OFF];
 
         /* Total length of Modbus-PDU is Modbus-Serial-Line-PDU minus
          * size of address field and CRC checksum.
          */
-        *pusLength = ( USHORT )( usRcvBufferPos - MB_SER_PDU_PDU_OFF - MB_SER_PDU_SIZE_CRC );   //减去3
+        *pusLength = ( USHORT )( usRcvBufferPos - MB_SER_PDU_PDU_OFF - MB_SER_PDU_SIZE_CRC );
 
         /* Return the start of the Modbus PDU to the caller. */
         *pucFrame = ( UCHAR * ) & ucRTUBuf[MB_SER_PDU_PDU_OFF];
@@ -228,10 +223,6 @@ eMBRTUReceive( UCHAR * pucRcvAddress, UCHAR ** pucFrame, USHORT * pusLength )
 //       注意，此函数中，对ucRTUBuf的访问既有间接方式（指针pucSndBufferCur与pucFrame），又有直接方式（直接向相应地址内写值），比较难理解。
 //       回复帧组织完后，将发送状态eSndState设为STATE_TX_XMIT（Transmitter is in transfer state），并禁止接收使能发送。
 //       发送一旦使能，就会进入发送中断，完成相应字符的发送。
-
-//功能 : 对响应报文PDU前面加上从机地址
-//       对响应报文PDU后加上CRC校验；
-//       使能发送，启动传输
 eMBErrorCode
 eMBRTUSend( UCHAR ucSlaveAddress, const UCHAR * pucFrame, USHORT usLength )
 {
@@ -249,18 +240,13 @@ eMBRTUSend( UCHAR ucSlaveAddress, const UCHAR * pucFrame, USHORT usLength )
      * slow with processing the received frame and the master sent another
      * frame on the network. We have to abort sending the frame.
      */
-     //检查接收器是否任然在空闲状态，如果不空闲我们推迟去处理接收
-     //并且主机发送另一个帧。
-     //我们必须终止发送当前帧。
     if( eRcvState == STATE_RX_IDLE )
     {
         /* First byte before the Modbus-PDU is the slave address. */
-	    //首先在协议数据单元前面加上从机地址
         pucSndBufferCur = ( UCHAR * ) pucFrame - 1;
         usSndBufferCount = 1;
 
         /* Now copy the Modbus-PDU into the Modbus-Serial-Line-PDU. */
-		//现在拷贝Modbus的PDU到Modbus串行线PDU
         pucSndBufferCur[MB_SER_PDU_ADDR_OFF] = ucSlaveAddress;
         usSndBufferCount += usLength;
 
@@ -270,7 +256,6 @@ eMBRTUSend( UCHAR ucSlaveAddress, const UCHAR * pucFrame, USHORT usLength )
         ucRTUBuf[usSndBufferCount++] = ( UCHAR )( usCRC16 >> 8 );
 
         /* Activate the transmitter. */
-		//发送状态
         eSndState = STATE_TX_XMIT;
         vMBPortSerialEnable( FALSE, TRUE );
     }
@@ -289,48 +274,45 @@ eMBRTUSend( UCHAR ucSlaveAddress, const UCHAR * pucFrame, USHORT usLength )
 //       同时向缓存数组ucRTUBuf中存入接收到的字符，跳入状态STATE_RX_RCV，并使重置超时定时器；
 //       在STATE_RX_RCV状态，不断将接收到的字符存入缓存，并统计接收计数，重置超时定时器，接收计数大于帧最大长度时，会跳入STATE_RX_ERROR状态。
 //       在任何一处发生超时中断，都会将状态eRcvState置为STATE_RX_IDLE。在接收过程（STATE_RX_RCV）中，发生超时中断，指示着一帧数据接收完成。
-//功能 : 将接收到的数据存入ucRTUBuf[]中
-//       usRcvBufferPos为全局变量，表示接收数据的个数
-//       每接收到一个字节的数据，3.5T定时器清0
+
 BOOL
 xMBRTUReceiveFSM( void )
 {
     BOOL            xTaskNeedSwitch = FALSE;
     UCHAR           ucByte;
 
-    assert( eSndState == STATE_TX_IDLE );	     //确保没有数据在发送
+    assert( eSndState == STATE_TX_IDLE );	
 	
     /* Always read the character. */
-    ( void )xMBPortSerialGetByte( ( CHAR * ) & ucByte ); //从串口数据寄存器读取一个字节数据
+    ( void )xMBPortSerialGetByte( ( CHAR * ) & ucByte );
 
-    //根据不同的状态转移
     switch ( eRcvState )
     {
         /* If we have received a character in the init state we have to
          * wait until the frame is finished.
          */
     case STATE_RX_INIT:
-        vMBPortTimersEnable( );      //开起3.5T定时器
+        vMBPortTimersEnable( );
         break;
 
         /* In the error state we wait until all characters in the
          * damaged frame are transmitted.
          */
     case STATE_RX_ERROR:
-        vMBPortTimersEnable( );       //数据帧损坏，重启定时器，不保存串口接收的数据
+        vMBPortTimersEnable( );
         break;
 
         /* In the idle state we wait for a new character. If a character
          * is received the t1.5 and t3.5 timers are started and the
          * receiver is in the state STATE_RX_RECEIVCE.
          */
-    case STATE_RX_IDLE:               //接收器空闲，开始接收，进入STATE_RX_RCV状态
+    case STATE_RX_IDLE:
         usRcvBufferPos = 0;
-        ucRTUBuf[usRcvBufferPos++] = ucByte; //保存数据
+        ucRTUBuf[usRcvBufferPos++] = ucByte;
         eRcvState = STATE_RX_RCV;
 
         /* Enable t3.5 timers. */
-        vMBPortTimersEnable( );          //每次收到一个字节，都重启3.5T定时器
+        vMBPortTimersEnable( );
         break;
 
         /* We are currently receiving a frame. Reset the timer after
@@ -341,13 +323,13 @@ xMBRTUReceiveFSM( void )
     case STATE_RX_RCV:
         if( usRcvBufferPos < MB_SER_PDU_SIZE_MAX )
         {
-            ucRTUBuf[usRcvBufferPos++] = ucByte;   //接收数据
+            ucRTUBuf[usRcvBufferPos++] = ucByte;
         }
         else
         {
-            eRcvState = STATE_RX_ERROR;  //一帧报文的字节数大于最大PDU长度，忽略超出的数据
+            eRcvState = STATE_RX_ERROR;
         }
-        vMBPortTimersEnable();             //每次收到一个字节，都重启3.5T定时器
+        vMBPortTimersEnable();
         break;
     }
 
@@ -377,24 +359,21 @@ xMBRTUTransmitFSM( void )
         vMBPortSerialEnable( TRUE, FALSE );
         break;
 
-    case STATE_TX_XMIT:                  //发送器处于发送状态，在从机发送函数eMBRTUSend中赋值STATE_TX_XMIT
+    case STATE_TX_XMIT:
         /* check if we are finished. */
         if( usSndBufferCount != 0 )
         {
-            //发送数据
             xMBPortSerialPutByte( ( CHAR )*pucSndBufferCur );
             pucSndBufferCur++;  /* next byte in sendbuffer. */
             usSndBufferCount--;
         }
         else
         {
-            //传递任务，发送完成
-            //协议栈事件状态赋值为EV_FRAM_SENT,发送完成事件，eMBPoll函数会对此事件进行处理
             xNeedPoll = xMBPortEventPost( EV_FRAME_SENT );
             /* Disable transmitter. This prevents another transmit buffer
              * empty interrupt. */
-            vMBPortSerialEnable( TRUE, FALSE );//使能接收，禁止发送
-            eSndState = STATE_TX_IDLE;  //发送器状态为空闲状态
+            vMBPortSerialEnable( TRUE, FALSE );
+            eSndState = STATE_TX_IDLE;
         }
         break;
     }
@@ -408,10 +387,6 @@ xMBRTUTransmitFSM( void )
 //       若中断发生于STATE_RX_RCV，则向系统发送事件EV_FRAME_RECEIVED（Frame received）；
 //       若中断发生于STATE_RX_ERROR，则跳出，不执行。在每个执行分支结束后，均关闭超时定时器，并将eRcvState转为STATE_RX_IDLE。
 //       当然，这儿不像FSM的输出逻辑。
-
-//功能    从机接收完成一帧数据后，接收状态机eRcvState为STATE_RX_RCV;
-//     上报“接收到报文”事件(EV_FRAME_RECEIVED)
-//     禁止3.5T定时器，设置接收状态机eRcvState状态为STATE_RX_IDLE空闲
 BOOL xMBRTUTimerT35Expired( void )
 {
     BOOL            xNeedPoll = FALSE;
@@ -423,15 +398,14 @@ BOOL xMBRTUTimerT35Expired( void )
     switch ( eRcvState )
     {
         /* Timer t35 expired. Startup phase is finished. */
-	    //上报modbus协议栈的事件状态给poll函数，EV_READY:初始化完成事件
     case STATE_RX_INIT:
         xNeedPoll = xMBPortEventPost( EV_READY );
         break;
 
         /* A frame was received and t35 expired. Notify the listener that
          * a new frame was received. */
-    case STATE_RX_RCV:                          //一帧数据接收完成
-        xNeedPoll = xMBPortEventPost( EV_FRAME_RECEIVED );   //上报协议栈事件，接收到一帧完整的数据
+    case STATE_RX_RCV:
+        xNeedPoll = xMBPortEventPost( EV_FRAME_RECEIVED );
 		    printf("post fra_rcvd\r\n");
         break;
 
@@ -445,9 +419,8 @@ BOOL xMBRTUTimerT35Expired( void )
                 ( eRcvState == STATE_RX_RCV ) || ( eRcvState == STATE_RX_ERROR ) );
     }
 
-    vMBPortTimersDisable(  );   //当接收到一帧数据后，禁止3.5T定时器，直到接收下一帧数据开始，开始计时
-    eRcvState = STATE_RX_IDLE;  //处理完一帧数据，接收器状态为空闲
-    //至此，从机接收到一帧完整的报文，存储在ucRTUBuf[MB_SER_PDU_SIZE_MAX]全局变量中，定时器禁止，接收机状态为空闲。
+    vMBPortTimersDisable(  );
+    eRcvState = STATE_RX_IDLE;
 
     return xNeedPoll;
 }
