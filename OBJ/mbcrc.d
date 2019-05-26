@@ -1,0 +1,12 @@
+..\obj\mbcrc.o: ..\MODBUS\modbus\rtu\mbcrc.c
+..\obj\mbcrc.o: ..\MODBUS\port\port.h
+..\obj\mbcrc.o: ..\SYSTEM\sys\sys.h
+..\obj\mbcrc.o: ..\SYSTEM\sys\stm32f10x.h
+..\obj\mbcrc.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm3.h
+..\obj\mbcrc.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\mbcrc.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmInstr.h
+..\obj\mbcrc.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h
+..\obj\mbcrc.o: d:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h
+..\obj\mbcrc.o: ..\SYSTEM\sys\system_stm32f10x.h
+..\obj\mbcrc.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
+..\obj\mbcrc.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\inttypes.h
