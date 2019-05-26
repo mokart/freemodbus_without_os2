@@ -256,7 +256,6 @@ eMBRTUSend( UCHAR ucSlaveAddress, const UCHAR * pucFrame, USHORT usLength )
     {
         /* First byte before the Modbus-PDU is the slave address. */
 	    //首先在协议数据单元前面加上从机地址
-	    //bug ? why -1?
         pucSndBufferCur = ( UCHAR * ) pucFrame - 1;
         usSndBufferCount = 1;
 
@@ -267,9 +266,8 @@ eMBRTUSend( UCHAR ucSlaveAddress, const UCHAR * pucFrame, USHORT usLength )
 
         /* Calculate CRC16 checksum for Modbus-Serial-Line-PDU. */
         usCRC16 = usMBCRC16( ( UCHAR * ) pucSndBufferCur, usSndBufferCount );
-		//bug fixed 
-        pucSndBufferCur[usSndBufferCount++] = ( UCHAR )( usCRC16 & 0xFF );
-        pucSndBufferCur[usSndBufferCount++] = ( UCHAR )( usCRC16 >> 8 );
+        ucRTUBuf[usSndBufferCount++] = ( UCHAR )( usCRC16 & 0xFF );
+        ucRTUBuf[usSndBufferCount++] = ( UCHAR )( usCRC16 >> 8 );
 
         /* Activate the transmitter. */
 		//发送状态
